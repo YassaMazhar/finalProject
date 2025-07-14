@@ -19,6 +19,8 @@ import CartProvider from "./Components/Context/CartProvider";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Wishlist from "./Pages/Wishlist/Wishlist";
 import WishlistProvider from "./Components/Context/WishlistContext";
+import  ProductsProvider  from "./Components/Context/Product.context";
+import CategoriesProvider from "./Components/Context/Categories.Context";
 
 function App() {
   let router = createBrowserRouter([
@@ -28,7 +30,7 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         { path: "/home", element: <Home /> },
-        { path: "allorders", element: <Home/> },
+        { path: "allorders", element: <Home /> },
         { path: "/product/:id", element: <ProductDetails /> },
         { path: "/categories", element: <Categories /> },
         { path: "/brands", element: <Brands /> },
@@ -80,14 +82,18 @@ function App() {
 
   return (
     <>
-      <TokenProvider>
-        <CartProvider>
-          <WishlistProvider>
-            <RouterProvider router={router} />
-            <Toaster />
-          </WishlistProvider>
-        </CartProvider>
-      </TokenProvider>
+      <ProductsProvider>
+        <CategoriesProvider>
+          <TokenProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <RouterProvider router={router} />
+                <Toaster />
+              </WishlistProvider>
+            </CartProvider>
+          </TokenProvider>
+        </CategoriesProvider>
+      </ProductsProvider>
     </>
   );
 }

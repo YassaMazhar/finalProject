@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { fetchAllProducts } from "../../services/Product-services";
+import React, { useContext} from "react";
 import Loading from "../Loading/Loading";
 import ProductCard from "../ProductCard/ProductCard";
+import { ProductContext } from "../Context/Product.context";
 
 export default function HomeFeatured() {
-  let [productsFeatured, setProductsFeatured] = useState(null);
-  let [loading, setLoading] = useState(true);
+  let {productsFeatured , loading} = useContext(ProductContext)
 
-  async function getAllProducts() {
-    try {
-      setLoading(true);
-      let response = await fetchAllProducts();
-      if (response.success) {
-        setLoading(false);
-        setProductsFeatured(response.data.data);
-      }
-    } catch (error) {
-      setLoading(false);
-    }
-  }
 
-  useEffect(() => {
-    getAllProducts();
-  }, []);
 
   if(loading){
     return <Loading/>

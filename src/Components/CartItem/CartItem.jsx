@@ -1,4 +1,4 @@
-import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Rating from "../Rating/Rating";
 import { useContext } from "react";

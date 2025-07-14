@@ -1,29 +1,12 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router";
 import Loading from "../Loading/Loading";
-import { sendDataToHomeCategory } from "../../services/Category-services.js";
+import { CategoriesContext } from "../Context/Categories.Context.jsx";
 
 export default function HomeCategory() {
-  let [homeCategoryData, setHomeCategoryData] = useState(null);
-  let [isLoading, setIsLoading] = useState(true);
-
-  async function getHomeCategoryData() {
-    try {
-      setIsLoading(true);
-      let response = await sendDataToHomeCategory();
-      setIsLoading(false);
-      setHomeCategoryData(response.data.data);
-    } catch (error) {
-      setIsLoading(true);
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getHomeCategoryData();
-  }, []);
+  let { categories, isLoading } = useContext(CategoriesContext);
 
   if (isLoading) {
     return <Loading />;
@@ -43,7 +26,7 @@ export default function HomeCategory() {
             </Link>
           </div>
           <div className="grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 py-6 gap-3">
-            {homeCategoryData.map((category) => (
+            {categories?.map((category) => (
               <Link
                 key={category._id}
                 to={"/"}

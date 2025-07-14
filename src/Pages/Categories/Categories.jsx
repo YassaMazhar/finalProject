@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
+
 import { Link } from "react-router";
-import { sendDataToHomeCategory } from "../../services/Category-services";
-import { LoaderIcon } from "react-hot-toast";
+
 import Loading from "../../Components/Loading/Loading";
+import { useContext } from "react";
+import { CategoriesContext } from "../../Components/Context/Categories.Context";
 
 export default function Categories() {
-  let [categories, setCategories] = useState(null);
-  let [isLoading, setIsLoading] = useState(true);
 
-  async function getAllCategories() {
-    try {
-      setIsLoading(true);
-      let response = await sendDataToHomeCategory();
-      if (response.success) {
-        setIsLoading(false);
-        setCategories(response.data.data);
-      }
-    } catch (error) {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getAllCategories();
-  }, []);
+ let {categories , isLoading} = useContext(CategoriesContext)
 
   if (isLoading) {
     return <Loading />;
