@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import image from "../../assets/login-img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,9 +16,11 @@ import * as yup from "yup";
 import toast from "react-hot-toast";
 import { sendDataToLogin } from "../../services/login-services";
 import { tokenContext } from "../../Components/Context/TokenProvider";
+import { CartContext } from "../../Components/Context/CartProvider";
 export default function Login() {
   let location = useLocation();
   let {token , setToken } = useContext(tokenContext);
+  let {handleGetProductToCart} = useContext(CartContext)
 
   let navigate = useNavigate();
   let passRegex = /^[A-Za-z0-9]{8,20}$/;
@@ -58,6 +60,10 @@ export default function Login() {
       toast.error(error);
     }
   }
+
+    useEffect(() => {
+      handleGetProductToCart();
+    }, []);
 
   let formik = useFormik({
     initialValues: {

@@ -3,16 +3,15 @@ import CartItem from "../../Components/CartItem/CartItem";
 import { CartContext } from "../../Components/Context/CartProvider";
 import Loading from "./../../Components/Loading/Loading";
 import { Link } from "react-router";
-import { tokenContext } from "../../Components/Context/TokenProvider";
 
 export default function Cart() {
   let { handleGetProductToCart, cartInfo, isLoading } = useContext(CartContext);
-  let { token } = useContext(tokenContext);
+  // let { token } = useContext(tokenContext);
 
 
   useEffect(() => {
     handleGetProductToCart();
-  }, [token]);
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -30,7 +29,7 @@ export default function Cart() {
               <h3 className="text-xl font-bold capitalize">Shopping Cart</h3>
 
               <span className="text-gray-500">
-                {numOfCartItems} items in cart
+                {cartInfo?.numOfCartItems} items in cart
               </span>
             </div>
             <div>
