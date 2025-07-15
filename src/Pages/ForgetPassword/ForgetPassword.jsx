@@ -27,7 +27,7 @@ export default function ForgetPassword() {
       if (response.success) {
         toast.success(response.data.message);
         setTimeout(() => {
-          navigate("/verify-email");
+          navigate("verify-email");
         }, 3000);
       }
     } catch (error) {
@@ -127,7 +127,7 @@ export default function ForgetPassword() {
             <div className="text-center ">
               <p className="py-6 font-bold text-gray-400 flex items-center gap-1.5 justify-center">
                 Remember Your Password ?
-                <Link className="text-primary-400" to={"/Login"}>
+                <Link className="text-primary-400" to={"Login"}>
                   Sign In
                 </Link>
               </p>

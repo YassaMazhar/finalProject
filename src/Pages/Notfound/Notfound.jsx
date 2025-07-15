@@ -38,7 +38,7 @@ export default function Notfound() {
               </li>
             </ul>
             <div>
-              <Link to={"/home"} className="text-primary-400 text-lg ">
+              <Link to={"home"} className="text-primary-400 text-lg ">
                 Return to the home page...?
               </Link>
             </div>

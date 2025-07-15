@@ -54,13 +54,13 @@ export default function Navbar() {
 
             <ul className="flex items-center gap-6 *:hover:text-primary-500">
               <li>
-                <NavLink to={"/track-order"}>Track Order</NavLink>
+                <NavLink to={"track-order"}>Track Order</NavLink>
               </li>
               <li>
-                <NavLink to={"/about"}>About</NavLink>
+                <NavLink to={"about"}>About</NavLink>
               </li>
               <li>
-                <NavLink to={"/contact"}>Contact</NavLink>
+                <NavLink to={"contact"}>Contact</NavLink>
               </li>
               <li>
                 <select className=" cursor-pointer">
@@ -105,7 +105,7 @@ export default function Navbar() {
                     className={({ isActive }) => {
                       return `${isActive ? "text-primary-500" : ""}`;
                     }}
-                    to={"/wishlist"}
+                    to={"wishlist"}
                   >
                     <FontAwesomeIcon icon={faHeart} />
                     <span>Wishlist</span>
@@ -117,7 +117,7 @@ export default function Navbar() {
                     className={({ isActive }) => {
                       return `${isActive ? "text-primary-500" : ""}`;
                     }}
-                    to={"/cart"}
+                    to={"cart"}
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
                     <span>Cart</span>
@@ -137,7 +137,7 @@ export default function Navbar() {
                     className={({ isActive }) => {
                       return `${isActive ? "text-primary-500" : ""}`;
                     }}
-                    to={"/account"}
+                    to={"account"}
                   >
                     <FontAwesomeIcon icon={faUser} />
                     <span>Account</span>
@@ -150,7 +150,7 @@ export default function Navbar() {
                         className={({ isActive }) => {
                           return `${isActive ? "text-primary-500" : ""}`;
                         }}
-                        to={"/signup"}
+                        to={"signup"}
                       >
                         <FontAwesomeIcon icon={faUserPlus} />
                         <span>Signup</span>
@@ -161,7 +161,7 @@ export default function Navbar() {
                         className={({ isActive }) => {
                           return `${isActive ? "text-primary-500" : ""}`;
                         }}
-                        to={"/login"}
+                        to={"login"}
                       >
                         <FontAwesomeIcon icon={faAddressCard} />
                         <span>Login</span>
@@ -180,7 +180,7 @@ export default function Navbar() {
                           className={({ isActive }) => {
                             return `${isActive ? "text-primary-500" : ""}`;
                           }}
-                          to={"/login"}
+                          to={"login"}
                         >
                           Logout
                         </NavLink>
@@ -374,7 +374,7 @@ export default function Navbar() {
                       className={({ isActive }) => {
                         return `${isActive ? "text-primary-500" : ""}`;
                       }}
-                      to={"/wishlist"}
+                      to={"wishlist"}
                     >
                       <FontAwesomeIcon icon={faHeart} />
                       <span>Wishlist</span>
@@ -418,7 +418,7 @@ export default function Navbar() {
                           className={({ isActive }) => {
                             return `${isActive ? "text-primary-500" : ""}`;
                           }}
-                          to={"/signup"}
+                          to={"signup"}
                         >
                           <FontAwesomeIcon icon={faUserPlus} />
                           <span>Signup</span>
@@ -429,7 +429,7 @@ export default function Navbar() {
                           className={({ isActive }) => {
                             return `${isActive ? "text-primary-500" : ""}`;
                           }}
-                          to={"/login"}
+                          to={"login"}
                         >
                           <FontAwesomeIcon icon={faAddressCard} />
                           <span>Login</span>
@@ -446,7 +446,7 @@ export default function Navbar() {
                             className={({ isActive }) => {
                               return `${isActive ? "text-primary-500" : ""}`;
                             }}
-                            to={"/login"}
+                            to={"login"}
                           >
                             <FontAwesomeIcon icon={faRightFromBracket} />
                             <span>Logout</span>

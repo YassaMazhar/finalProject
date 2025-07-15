@@ -16,6 +16,7 @@ export default function Cart() {
   }
   let { data, numOfCartItems } = cartInfo;
   let { products, totalCartPrice } = data;
+  
   return (
     <>
       <section className="py-8  ">
@@ -62,12 +63,12 @@ export default function Cart() {
                 EGP
               </span>
             </div>
-            <Link to={'/checkout'} className="bg-primary-500 hover:bg-primary-700 my-3 text-white w-full text-center rounded-md p-2">
+            <Link to={'checkout'} className="bg-primary-500 hover:bg-primary-700 my-3 text-white w-full text-center rounded-md p-2">
                 Protected to checkout
              
             </Link>
             <Link
-              to={"/home"}
+              to={"home"}
               className="bg-gray-200 hover:bg-gray-300 my-2 text-black w-full text-center rounded-md p-2"
             >
               Continue Shopping

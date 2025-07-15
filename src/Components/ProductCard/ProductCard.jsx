@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { desc } from "../../utils/priceDesc";
 import Rating from "../Rating/Rating";
 import { Link } from "react-router";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartProvider";
 import { WishlistContext } from "../Context/WishlistContext";
 
@@ -37,13 +37,13 @@ export default function CardDeals({ productInfo }) {
   return (
     <>
       <div className="card relative bg-white rounded-lg shadow-xl hover:shadow-2xl ">
-        <Link to={`/product/${id}`} className=" mx-auto block">
+        <Link to={`product/${id}`} className=" mx-auto block">
           <img src={imageCover} alt="" className=" h-52 mx-auto" />
         </Link>
         <div className="content p-3 space-y-1">
           <span className="text-gray-500 ">{category.name}</span>
           <h3 className="text-md font-bold *:line-clamp-2">
-            <Link to={`/product/${id}`}>{title}</Link>
+            <Link to={`product/${id}`}>{title}</Link>
           </h3>
           <div className="flex space-x-1 items-center">
             <div className="rating text-yellow-400">
@@ -89,7 +89,7 @@ export default function CardDeals({ productInfo }) {
             )}
           </button>
           <FontAwesomeIcon icon={faCodeCompare} />
-          <Link to={`/product/${id}`}>
+          <Link to={`product/${id}`}>
             <FontAwesomeIcon icon={faEye} />
           </Link>
         </div>

@@ -25,17 +25,17 @@ import CategoriesProvider from "./Components/Context/Categories.Context";
 function App() {
   let router = createBrowserRouter([
     {
-      path: "",
+      path: "/",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "/home", element: <Home /> },
+        { path: "home", element: <Home /> },
         { path: "allorders", element: <Home /> },
-        { path: "/product/:id", element: <ProductDetails /> },
-        { path: "/categories", element: <Categories /> },
-        { path: "/brands", element: <Brands /> },
+        { path: "product/:id", element: <ProductDetails /> },
+        { path: "categories", element: <Categories /> },
+        { path: "brands", element: <Brands /> },
         {
-          path: "/cart",
+          path: "cart",
           element: (
             <ProtectedRoute>
               {" "}
@@ -44,7 +44,7 @@ function App() {
           ),
         },
         {
-          path: "/wishlist",
+          path: "wishlist",
           element: (
             <ProtectedRoute>
               {" "}
@@ -53,7 +53,7 @@ function App() {
           ),
         },
         {
-          path: "/checkout",
+          path: "checkout",
           element: (
             <ProtectedRoute>
               {" "}
@@ -62,7 +62,7 @@ function App() {
           ),
         },
         {
-          path: "/orders",
+          path: "orders",
           element: (
             <ProtectedRoute>
               {" "}
@@ -70,11 +70,11 @@ function App() {
             </ProtectedRoute>
           ),
         },
-        { path: "/signup", element: <SignUp /> },
-        { path: "/login", element: <Login /> },
-        { path: "/verify-email", element: <VerifyEmail /> },
-        { path: "/forget-password", element: <ForgetPassword /> },
-        { path: "/reset-password", element: <ResetPassword /> },
+        { path: "signup", element: <SignUp /> },
+        { path: "login", element: <Login /> },
+        { path: "verify-email", element: <VerifyEmail /> },
+        { path: "forget-password", element: <ForgetPassword /> },
+        { path: "reset-password", element: <ResetPassword /> },
       ],
     },
     { path: "*", element: <Notfound /> },

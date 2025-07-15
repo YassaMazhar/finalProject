@@ -1,4 +1,3 @@
-
 import { Link } from "react-router";
 
 import Loading from "../../Components/Loading/Loading";
@@ -6,8 +5,8 @@ import { useContext } from "react";
 import { CategoriesContext } from "../../Components/Context/Categories.Context";
 
 export default function Categories() {
+  let { categories, isLoading } = useContext(CategoriesContext);
 
- let {categories , isLoading} = useContext(CategoriesContext)
 
   if (isLoading) {
     return <Loading />;
@@ -21,7 +20,8 @@ export default function Categories() {
           <div className="grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 py-6 gap-3">
             {categories.map((category) => (
               <Link
-                to={"/"}
+                key={category._id}
+                to={""}
                 className="card bg-white text-center py-4 rounded-lg space-y-2 cursor-pointer shadow-md hover:shadow-xl"
               >
                 <img

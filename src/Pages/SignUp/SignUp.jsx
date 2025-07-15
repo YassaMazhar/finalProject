@@ -50,7 +50,7 @@ export default function SignUp() {
       await sendDataToSignup(values);
       toast.success("Successfully toasted!");
       setTimeout(() => {
-        navigate("/login");
+        navigate("login");
       }, 3000);
     } catch (error) {
       toast.error(error);
@@ -282,7 +282,7 @@ export default function SignUp() {
 
             <p className="text-center py-2">
               Already have an account?{" "}
-              <Link className="text-primary-400" to={"/login"}>
+              <Link className="text-primary-400" to={"login"}>
                 Sign In
               </Link>
             </p>

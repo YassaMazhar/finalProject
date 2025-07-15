@@ -24,7 +24,7 @@ export default function VerifyEmail() {
       if (response.success) {
         toast.success(response.data.status);
         setTimeout(() => {
-          navigate("/reset-password");
+          navigate("reset-password");
         }, 1000);
       }
     } catch (error) {
@@ -123,7 +123,7 @@ export default function VerifyEmail() {
 
             <div className="text-center ">
               <p className="py-6 font-bold text-gray-400 flex items-center gap-1.5 justify-center">
-                <Link className="text-primary-400" to={"/Login"}>
+                <Link className="text-primary-400" to={"Login"}>
                   Back to Sign In
                 </Link>
               </p>

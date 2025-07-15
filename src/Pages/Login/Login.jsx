@@ -50,7 +50,7 @@ export default function Login() {
             navigate(location.state.from )
           }
           else {
-           navigate('/home')
+           navigate('home')
           }
         }, 3000);
       }
@@ -158,7 +158,7 @@ export default function Login() {
                     <label className="font-semibold" htmlFor="password">
                       Password
                     </label>
-                    <Link className="text-primary-400" to={"/forget-password"}>
+                    <Link className="text-primary-400" to={"forget-password"}>
                       Forget Password?
                     </Link>
                   </div>
@@ -187,7 +187,7 @@ export default function Login() {
             <div className="text-center ">
               <p className="py-6 font-bold text-gray-400">
                 New to FreshCart?{" "}
-                <Link className="text-primary-400" to={"/signup"}>
+                <Link className="text-primary-400" to={"signup"}>
                   Create an account
                 </Link>
               </p>
