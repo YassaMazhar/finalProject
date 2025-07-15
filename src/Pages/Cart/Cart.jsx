@@ -3,20 +3,23 @@ import CartItem from "../../Components/CartItem/CartItem";
 import { CartContext } from "../../Components/Context/CartProvider";
 import Loading from "./../../Components/Loading/Loading";
 import { Link } from "react-router";
+import { tokenContext } from "../../Components/Context/TokenProvider";
 
 export default function Cart() {
   let { handleGetProductToCart, cartInfo, isLoading } = useContext(CartContext);
+  let { token } = useContext(tokenContext);
+
 
   useEffect(() => {
     handleGetProductToCart();
-  }, []);
+  }, [token]);
 
   if (isLoading) {
     return <Loading />;
   }
   let { data, numOfCartItems } = cartInfo;
   let { products, totalCartPrice } = data;
-  
+
   return (
     <>
       <section className="py-8  ">
@@ -63,9 +66,11 @@ export default function Cart() {
                 EGP
               </span>
             </div>
-            <Link to={'/checkout'} className="bg-primary-500 hover:bg-primary-700 my-3 text-white w-full text-center rounded-md p-2">
-                Protected to checkout
-             
+            <Link
+              to={"/checkout"}
+              className="bg-primary-500 hover:bg-primary-700 my-3 text-white w-full text-center rounded-md p-2"
+            >
+              Protected to checkout
             </Link>
             <Link
               to={"/home"}

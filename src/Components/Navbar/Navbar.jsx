@@ -369,6 +369,17 @@ export default function Navbar() {
               <div className="border-b border-gray-400/40 pb-4">
                 <h2 className="text-xl font-bold">Main Menu</h2>
                 <ul className="space-y-3 mt-3">
+                     <li className="*:flex *:gap-2  *:hover:text-primary-500">
+                    <NavLink
+                      className={({ isActive }) => {
+                        return `${isActive ? "text-primary-500" : ""}`;
+                      }}
+                      to={"/home"}
+                    >
+                      <FontAwesomeIcon icon={faUser} />
+                      <span>Home</span>
+                    </NavLink>
+                  </li>
                   <li className="*:flex *:gap-2  *:hover:text-primary-500">
                     <NavLink
                       className={({ isActive }) => {
@@ -392,17 +403,7 @@ export default function Navbar() {
                       <span>Cart</span>
                     </NavLink>
                   </li>
-                  <li className="*:flex *:gap-2  *:hover:text-primary-500">
-                    <NavLink
-                      className={({ isActive }) => {
-                        return `${isActive ? "text-primary-500" : ""}`;
-                      }}
-                      to={"/account"}
-                    >
-                      <FontAwesomeIcon icon={faUser} />
-                      <span>Account</span>
-                    </NavLink>
-                  </li>
+               
                 </ul>
               </div>
 
