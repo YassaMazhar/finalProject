@@ -34,7 +34,7 @@ export default function ResetPassword() {
         toast.success("The password has been changed successfully.")
         setToken(response.data.toke)
         setTimeout(() => {
-          navigate('login')
+          navigate('/login')
         }, 2000);
       }
       
@@ -120,7 +120,7 @@ export default function ResetPassword() {
           <div className="text-center ">
             <p className="py-3 font-bold text-gray-400">
               Remember Your Password?{" "}
-              <Link className="text-primary-400" to={"login"}>
+              <Link className="text-primary-400" to={"/login"}>
                Login
               </Link>
             </p>

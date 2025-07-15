@@ -35,6 +35,7 @@ export default function CartProvider({ children }) {
       if (response.success) {
         setCartInfo(response.data);
         setIsLoading(false);
+        
       }
     } catch (error) {
       setIsLoading(false);
