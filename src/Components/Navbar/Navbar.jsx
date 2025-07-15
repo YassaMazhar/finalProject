@@ -180,7 +180,7 @@ export default function Navbar() {
                           className={({ isActive }) => {
                             return `${isActive ? "text-primary-500" : ""}`;
                           }}
-                          to={"login"}
+                          to={"/login"}
                         >
                           Logout
                         </NavLink>
@@ -446,7 +446,7 @@ export default function Navbar() {
                             className={({ isActive }) => {
                               return `${isActive ? "text-primary-500" : ""}`;
                             }}
-                            to={"login"}
+                            to={"/login"}
                           >
                             <FontAwesomeIcon icon={faRightFromBracket} />
                             <span>Logout</span>
