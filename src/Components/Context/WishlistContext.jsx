@@ -52,9 +52,9 @@ export default function WishlistProvider({ children }) {
       console.log(error);
     }
   }
-useEffect(()=>{
-  handleLoggedWishlist()
-} , [])
+// useEffect(()=>{
+//     handleLoggedWishlist()
+// } , [])
 
   return (
     <>

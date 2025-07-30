@@ -1,4 +1,4 @@
-import { createContext,  useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   addProductToCart,
   getProductToCart,
@@ -12,17 +12,17 @@ export default function CartProvider({ children }) {
   let [cartInfo, setCartInfo] = useState(null);
   let [isLoading, setIsLoading] = useState(true);
 
-
   // ^ function add to cart
   async function handelAddToCart({ id }) {
     try {
+      setIsLoading(true);
       let response = await addProductToCart({ id });
       if (response.success) {
-        toast.success(response.data.message);
+        setIsLoading(false);
         setCartInfo(response.data);
+        toast.success(response.data.message);
       }
     } catch (error) {
-
       setIsLoading(false);
     }
   }
@@ -35,7 +35,6 @@ export default function CartProvider({ children }) {
       if (response.success) {
         setCartInfo(response?.data);
         setIsLoading(false);
-        
       }
     } catch (error) {
       setIsLoading(false);
@@ -68,7 +67,6 @@ export default function CartProvider({ children }) {
         isLoading,
         handleGetProductToCart,
         handleRemoveProductFromCart,
-
       }}
     >
       {children}

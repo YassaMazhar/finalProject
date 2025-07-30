@@ -3,7 +3,7 @@ import { API_CONFIG } from "../Config";
 
 export let apiClient = axios.create({
   baseURL: API_CONFIG.baseURL,
-  timeout: 3000,
+  timeout: 5000,
 });
 apiClient.interceptors.request.use((config) => {
   let token = localStorage.getItem('token')

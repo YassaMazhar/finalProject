@@ -22,7 +22,7 @@ export default function CategoriesProvider({ children }) {
   }
 
   useEffect(() => {
-    getAllCategories();
+      getAllCategories();
   }, []);
 
   return (

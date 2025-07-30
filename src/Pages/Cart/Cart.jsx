@@ -3,20 +3,29 @@ import CartItem from "../../Components/CartItem/CartItem";
 import { CartContext } from "../../Components/Context/CartProvider";
 import { Link } from "react-router";
 import CartSkeleton from "./../../Components/Skeleton/CartSkeleton";
+import MetadataPage from "../../Components/MetadataPage/MetadataPage";
 
 export default function Cart() {
   let { handleGetProductToCart, cartInfo, isLoading } = useContext(CartContext);
 
   useEffect(() => {
-    handleGetProductToCart();
+    try {
+      handleGetProductToCart();
+      
+    } catch (error) {
+            handleGetProductToCart();
+
+    }
   }, []);
 
   if (isLoading) {
     return <CartSkeleton />;
   }
-  if (!cartInfo || !cartInfo.data) {
+  if (!cartInfo || !cartInfo.data || !cartInfo.data.products) {
     return (
-      <p className="text-center py-10 text-red-600">No cart data available.</p>
+      <div className="text-center py-10 text-red-600">
+        Cart is empty or failed to load. Please try again later.
+      </div>
     );
   }
   let { data, numOfCartItems } = cartInfo;
@@ -24,6 +33,7 @@ export default function Cart() {
 
   return (
     <>
+      <MetadataPage title="Cart Page" description="Manage your cart items" />
       <section className="py-8  ">
         <div className="container grid md:grid-cols-3 gap-4 ">
           {/* left */}

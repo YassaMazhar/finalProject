@@ -3,15 +3,17 @@ import HomePartOne from "../../Components/HomePartOne/HomePartOne";
 import HomeCategory from "../../Components/HomeCategory/HomeCategory";
 import HomeDeals from "../../Components/HomeDeals/HomeDeals";
 import HomeFeatured from "../../Components/HomeFeatured/HomeFeatured";
+import MetadataPage from "../../Components/MetadataPage/MetadataPage";
 
 export default function Home() {
   return (
     <>
+      <MetadataPage title="Home Page" description="Welcome to the Home Page" />
       <Slider />
       <HomePartOne />
-      <HomeCategory/>
-      <HomeDeals/>
-      <HomeFeatured/>
+      <HomeCategory />
+      <HomeDeals />
+      <HomeFeatured />
     </>
   );
 }

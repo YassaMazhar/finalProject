@@ -80,22 +80,20 @@ function App() {
     { path: "*", element: <Notfound /> },
   ]);
 
-
-
   return (
     <>
-        <ProductsProvider>
-          <CategoriesProvider>
-            <TokenProvider>
-              <CartProvider>
-                <WishlistProvider>
-                  <RouterProvider router={router} />
-                  <Toaster />
-                </WishlistProvider>
-              </CartProvider>
-            </TokenProvider>
-          </CategoriesProvider>
-        </ProductsProvider>
+      <TokenProvider>
+        <CartProvider>
+          <ProductsProvider>
+            <CategoriesProvider>
+              <WishlistProvider>
+                <RouterProvider router={router} />
+                <Toaster />
+              </WishlistProvider>
+            </CategoriesProvider>
+          </ProductsProvider>
+        </CartProvider>
+      </TokenProvider>
     </>
   );
 }

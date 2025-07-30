@@ -19,13 +19,9 @@ export default function ProductsProvider({ children }) {
       setLoading(false);
     }
   }
-
     useEffect(() => {
-      fetchProducts();
+        fetchProducts();
     }, []);
-
-
-    
 
   return (
     <ProductContext.Provider value={{productsFeatured , loading}}>{children}</ProductContext.Provider>
