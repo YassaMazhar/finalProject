@@ -24,6 +24,9 @@ export default function ProductsProvider({ children }) {
       fetchProducts();
     }, []);
 
+
+    
+
   return (
     <ProductContext.Provider value={{productsFeatured , loading}}>{children}</ProductContext.Provider>
   );

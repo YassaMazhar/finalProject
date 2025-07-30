@@ -33,7 +33,7 @@ export default function CartProvider({ children }) {
       setIsLoading(true);
       let response = await getProductToCart();
       if (response.success) {
-        setCartInfo(response.data);
+        setCartInfo(response?.data);
         setIsLoading(false);
         
       }
@@ -59,9 +59,6 @@ export default function CartProvider({ children }) {
   useEffect(() => {
     handleGetProductToCart();
   }, []);
-
-
-
 
   return (
     <CartContext.Provider

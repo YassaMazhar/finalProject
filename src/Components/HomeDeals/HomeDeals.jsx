@@ -1,14 +1,14 @@
 
 import { useContext } from "react";
-import Loading from "../Loading/Loading";
 import ProductCard from "../ProductCard/ProductCard";
 import { ProductContext } from "../Context/Product.context";
+import HomeDealsSkeleton from "../Skeleton/HomeDealsSkeleton";
 
 export default function HomeDeals() {
   let { productsFeatured, loading } = useContext(ProductContext);
 
   if (loading) {
-    return <Loading />;
+    return <HomeDealsSkeleton/>;
   }
 
   let deals =

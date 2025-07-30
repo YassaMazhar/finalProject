@@ -1,20 +1,23 @@
 import { useContext, useEffect } from "react";
 import CartItem from "../../Components/CartItem/CartItem";
 import { CartContext } from "../../Components/Context/CartProvider";
-import Loading from "./../../Components/Loading/Loading";
 import { Link } from "react-router";
+import CartSkeleton from "./../../Components/Skeleton/CartSkeleton";
 
 export default function Cart() {
   let { handleGetProductToCart, cartInfo, isLoading } = useContext(CartContext);
-  // let { token } = useContext(tokenContext);
-
 
   useEffect(() => {
     handleGetProductToCart();
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return <CartSkeleton />;
+  }
+  if (!cartInfo || !cartInfo.data) {
+    return (
+      <p className="text-center py-10 text-red-600">No cart data available.</p>
+    );
   }
   let { data, numOfCartItems } = cartInfo;
   let { products, totalCartPrice } = data;

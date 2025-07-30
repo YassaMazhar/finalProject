@@ -5,7 +5,6 @@ export let apiClient = axios.create({
   baseURL: API_CONFIG.baseURL,
   timeout: 3000,
 });
-
 apiClient.interceptors.request.use((config) => {
   let token = localStorage.getItem('token')
   if(token ){
@@ -13,7 +12,6 @@ apiClient.interceptors.request.use((config) => {
   }
   return config ;
 });
-
 apiClient.interceptors.response.use(
   (response) => {
     return Promise.resolve({

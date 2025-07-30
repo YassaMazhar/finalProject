@@ -8,6 +8,7 @@ export default function Categories() {
   let { categories, isLoading } = useContext(CategoriesContext);
 
 
+
   if (isLoading) {
     return <Loading />;
   }
@@ -18,7 +19,7 @@ export default function Categories() {
         <div className="container">
           <h2 className="text-3xl font-bold ml-4 py-2">Category</h2>
           <div className="grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 py-6 gap-3">
-            {categories.map((category) => (
+            {categories?.map((category) => (
               <Link
                 key={category._id}
                 to={""}

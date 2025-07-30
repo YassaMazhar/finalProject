@@ -1,15 +1,13 @@
-import React, { useContext} from "react";
-import Loading from "../Loading/Loading";
+import { useContext} from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { ProductContext } from "../Context/Product.context";
+import HomeFeaturesSkeleton from "../Skeleton/HomeFeaturesSkeleton";
 
 export default function HomeFeatured() {
   let {productsFeatured , loading} = useContext(ProductContext)
 
-
-
   if(loading){
-    return <Loading/>
+    return <HomeFeaturesSkeleton/>
   }
   return (
     <>

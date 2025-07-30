@@ -20,7 +20,6 @@ export default function Brands() {
     }
   }
 
-
   useEffect(() => {
     getAllBrands();
   }, []);
@@ -35,7 +34,7 @@ export default function Brands() {
         <div className="container">
           <h2 className="text-3xl font-bold ml-4 py-2">Brands: </h2>
           <div className="grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 py-6 gap-3">
-            {isBrands.map((brand) => (
+            {isBrands?.map((brand) => (
               <Link
                 key={brand._id}
                 className="bg-white shadow-xl hover:shadow-2xl border border-gray-400/30 p-3 "

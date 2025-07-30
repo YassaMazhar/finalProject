@@ -19,7 +19,7 @@ import CartProvider from "./Components/Context/CartProvider";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Wishlist from "./Pages/Wishlist/Wishlist";
 import WishlistProvider from "./Components/Context/WishlistContext";
-import  ProductsProvider  from "./Components/Context/Product.context";
+import ProductsProvider from "./Components/Context/Product.context";
 import CategoriesProvider from "./Components/Context/Categories.Context";
 
 function App() {
@@ -80,20 +80,22 @@ function App() {
     { path: "*", element: <Notfound /> },
   ]);
 
+
+
   return (
     <>
-      <ProductsProvider>
-        <CategoriesProvider>
-          <TokenProvider>
-            <CartProvider>
-              <WishlistProvider>
-                <RouterProvider router={router} />
-                <Toaster />
-              </WishlistProvider>
-            </CartProvider>
-          </TokenProvider>
-        </CategoriesProvider>
-      </ProductsProvider>
+        <ProductsProvider>
+          <CategoriesProvider>
+            <TokenProvider>
+              <CartProvider>
+                <WishlistProvider>
+                  <RouterProvider router={router} />
+                  <Toaster />
+                </WishlistProvider>
+              </CartProvider>
+            </TokenProvider>
+          </CategoriesProvider>
+        </ProductsProvider>
     </>
   );
 }
