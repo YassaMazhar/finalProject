@@ -19,8 +19,7 @@ import CartProvider from "./Components/Context/CartProvider";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Wishlist from "./Pages/Wishlist/Wishlist";
 import WishlistProvider from "./Components/Context/WishlistContext";
-import ProductsProvider from "./Components/Context/Product.context";
-import CategoriesProvider from "./Components/Context/Categories.Context";
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
 function App() {
   let router = createBrowserRouter([
@@ -80,20 +79,32 @@ function App() {
     { path: "*", element: <Notfound /> },
   ]);
 
+
+  let queryClient = new QueryClient({
+    defaultOptions : {
+      queries : {
+        staleTime : 2 * 60 * 100,
+        gcTime : 10000,
+        retry : 3,
+        retryDelay : 3000,
+      }
+    }
+  })
+
+
   return (
     <>
-      <TokenProvider>
+    
+     <QueryClientProvider client={queryClient}>
+       <TokenProvider>
         <CartProvider>
-          <ProductsProvider>
-            <CategoriesProvider>
               <WishlistProvider>
                 <RouterProvider router={router} />
                 <Toaster />
               </WishlistProvider>
-            </CategoriesProvider>
-          </ProductsProvider>
         </CartProvider>
       </TokenProvider>
+     </QueryClientProvider>
     </>
   );
 }

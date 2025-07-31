@@ -11,10 +11,8 @@ export default function Cart() {
   useEffect(() => {
     try {
       handleGetProductToCart();
-      
     } catch (error) {
-            handleGetProductToCart();
-
+      handleGetProductToCart();
     }
   }, []);
 

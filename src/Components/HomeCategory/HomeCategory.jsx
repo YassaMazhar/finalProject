@@ -1,11 +1,10 @@
 
-import { useContext } from "react";
 import { Link } from "react-router";
-import { CategoriesContext } from "../Context/Categories.Context.jsx";
 import HomeCategoriesSkeleton from "../Skeleton/HomeCategoriesSkeleton.jsx";
+import useCategories from "../../hooks/useCategories.js";
 
 export default function HomeCategory() {
-  let { categories, isLoading } = useContext(CategoriesContext);
+   let { categories, isLoading } = useCategories()
 
   if (isLoading) {
     return <HomeCategoriesSkeleton/>

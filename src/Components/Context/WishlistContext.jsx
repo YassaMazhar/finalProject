@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import {
   addProductToWishlist,
   getLoggedToWishlist,

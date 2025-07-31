@@ -24,8 +24,6 @@ export default function ProductDetails() {
     }
   }
 
- 
-
 
   useEffect(() => {
     getDataOneProduct();

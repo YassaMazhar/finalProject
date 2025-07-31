@@ -1,16 +1,14 @@
 import { Link } from "react-router";
-
-import Loading from "../../Components/Loading/Loading";
-import { useContext } from "react";
-import { CategoriesContext } from "../../Components/Context/Categories.Context";
+import useCategories from "../../hooks/useCategories";
+import CategoriesSkeleton from "../../Components/Skeleton/CategoriesSkeleton";
 
 export default function Categories() {
-  let { categories, isLoading } = useContext(CategoriesContext);
+  let { categories, isLoading } = useCategories();
 
 
 
   if (isLoading) {
-    return <Loading />;
+    return <CategoriesSkeleton />;
   }
 
   return (

@@ -1,31 +1,11 @@
-import { useEffect, useState } from "react";
-import { sendDataToBrandPage } from "../../services/brand-services";
-import Loading from "../../Components/Loading/Loading";
 import { Link } from "react-router";
+import useBrand from "../../hooks/useBrand";
+import BrandsSkeleton from "../../Components/Skeleton/brandsSkeleton";
 
 export default function Brands() {
-  let [isBrands, setIsBrands] = useState(null);
-  let [isLoading, setIsLoading] = useState(true);
-
-  async function getAllBrands() {
-    try {
-      setIsLoading(true);
-      let response = await sendDataToBrandPage();
-      if (response.success) {
-        setIsLoading(false);
-        setIsBrands(response.data.data);
-      }
-    } catch (error) {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getAllBrands();
-  }, []);
-
+let {isBrands , isLoading} = useBrand()
   if (isLoading) {
-    return <Loading />;
+    return <BrandsSkeleton/>;
   }
 
   return (

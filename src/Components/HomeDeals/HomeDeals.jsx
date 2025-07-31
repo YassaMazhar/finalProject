@@ -1,13 +1,12 @@
 
-import { useContext } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import { ProductContext } from "../Context/Product.context";
 import HomeDealsSkeleton from "../Skeleton/HomeDealsSkeleton";
+import useProduct from "../../hooks/useProduct";
 
 export default function HomeDeals() {
-  let { productsFeatured, loading } = useContext(ProductContext);
+  let { productsFeatured, isLoading } = useProduct();
 
-  if (loading) {
+  if (isLoading) {
     return <HomeDealsSkeleton/>;
   }
 
